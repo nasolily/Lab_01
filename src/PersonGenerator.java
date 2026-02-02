@@ -29,16 +29,17 @@ public class PersonGenerator {
         Person perp;
 
         do {
-//            id = SafeInput.getNonZeroLenString(in, "Enter the ID [6 digits]");
-//            firstName = SafeInput.getNonZeroLenString(in, "Enter the first name");
-//            lastName = SafeInput.getNonZeroLenString(in, "Enter the last name");
-//            title = SafeInput.getNonZeroLenString(in, "Enter the title");
-//            YOB = SafeInput.getInt(in, "Enter the year of birth");
+    //        000001, Bilbo, Baggins, Esq., 1060
+    //        000002, Frodo, Baggins, Esq., 1120
+    //        000003, Samwise, Gamgee, Esq., 1125
+    //        000004, Peregrin, Took, Esq., 1126
+    //        000005, Meridoc, Brandybuck, Esq., 1126
 
-                ID = sio.getNonZeroLengthString("Enter the ID [6 digits]");
-                fName = sio.getNonZeroLengthString("Enter the first name");
-                lName = sio.getNonZeroLengthString("Enter the last name");
-                title = sio.getNonZeroLengthString("Enter the title");
+                // prompt user for the fields
+                ID = sio.getNonZeroLenString("Enter the ID [6 digits]");
+                fName = sio.getNonZeroLenString("Enter the first name");
+                lName = sio.getNonZeroLenString("Enter the last name");
+                title = sio.getNonZeroLenString("Enter the title");
                 YOB = sio.getRangedInt("Enter the year for age calculation: ", 1000, 9999);
 
 
@@ -53,8 +54,9 @@ public class PersonGenerator {
 
 
         } while (!done);
+        String fileName = sio.getNonZeroLenString("Enter output file name: ");
         File workingDirectory = new File(System.getProperty("user.dir"));
-        Path file = Paths.get(workingDirectory.getPath() + "\\src\\data.txt");
+        Path file = Paths.get(workingDirectory.getPath() + "\\src\\" + fileName);
 
         try {
             OutputStream out =
